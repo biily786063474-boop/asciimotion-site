@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>口播稿相机 · 支持</title>
+<meta name="description" content="口播稿相机 —— 跟读式提词的口播录制 App。稿子跟着你的嘴走，全程离线。">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1e; --muted:#6b6b76;
+    --line:#e6e6ea; --accent:#4a56c4; --card:#f7f7f9;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0a0a0c; --fg:#ededef; --muted:#8a8f98;
+           --line:#26262c; --accent:#8b94e8; --card:#141418; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:56px 20px 96px;
+    background:var(--bg); color:var(--fg);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:720px;margin:0 auto}
+  .hero{display:flex;align-items:center;gap:18px;margin-bottom:10px}
+  .mark{
+    width:64px;height:64px;border-radius:15px;flex:none;
+    background:#000;color:#fff;display:grid;place-items:center;
+    font:600 30px/1 -apple-system,sans-serif;letter-spacing:-.02em;
+  }
+  h1{font-size:27px;line-height:1.25;margin:0;letter-spacing:-.01em}
+  .tag{color:var(--muted);font-size:15px;margin:4px 0 0}
+  .lede{
+    background:var(--card);border:1px solid var(--line);
+    border-radius:12px;padding:20px 22px;margin:32px 0 8px;
+  }
+  h2{font-size:19px;margin:42px 0 12px;letter-spacing:-.01em}
+  h3{font-size:16px;margin:26px 0 6px}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px;padding-left:22px}
+  li{margin:7px 0}
+  b{font-weight:600}
+  .k{color:var(--accent);font-weight:600}
+  a{color:var(--accent)}
+  footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<main>
+
+  <div class="hero">
+    <div class="mark">C</div>
+    <div>
+      <h1>口播稿相机</h1>
+      <p class="tag">跟读式提词，说到哪滚到哪</p>
+    </div>
+  </div>
+
+  <div class="lede">
+    <p style="margin:0">录口播最烦的不是背稿，是提词器跟不上你。市面上的提词器基本都是匀速滚动——
+    语速一变就脱节。口播稿相机换了个做法：<b>它听你在说什么，稿子跟着你的嘴走。</b></p>
+  </div>
+
+  <h2>主要功能</h2>
+  <ul>
+    <li><b>跟读式提词</b> —— 读到哪个字高亮就到哪个字，读完一行滚一行。语速快慢、临时停顿都不用管。</li>
+    <li><b>中文同音字容错</b> —— 念错字、吃字、加语气词都能兜住，「在/再」「的/得」这类偏差不会让提词断轨。</li>
+    <li><b>脱稿不乱滚</b> —— 即兴发挥时提词器停下来等你，讲回原稿自动接上。</li>
+    <li><b>前后双摄画中画</b> —— 小窗可拖到任意角、点一下前后互换，大小和比例可调，直接合成进成片。</li>
+    <li><b>字幕不用对轴</b> —— 导出的 SRT 用你写的原稿，不是语音识别的错字版。</li>
+    <li><b>全程离线</b> —— 不联网、不上传、无需账号。</li>
+  </ul>
+
+  <h2>常见问题</h2>
+
+  <h3>需要联网吗？</h3>
+  <p>不需要。App 没有联网能力，所有功能都在本机完成。</p>
+
+  <h3>语音识别会把我的声音传到服务器吗？</h3>
+  <p><span class="k">不会。</span>使用的是 iOS 26 系统内置的设备端识别（SpeechAnalyzer），
+  音频只在你的设备内存中处理，不离开手机。</p>
+
+  <h3>第一次录制时提示下载模型，这是什么？</h3>
+  <p>那是 Apple 提供的中文语音识别模型，由 iOS 系统下载并安装到设备上，只需一次。
+  下载完成后即可完全离线使用。</p>
+
+  <h3>为什么「双摄」按钮是灰的？</h3>
+  <p>前后同时录制需要设备支持多路采集（iPhone XS 或更新机型）。
+  不支持的机型上该功能不可用，单摄模式不受影响。</p>
+
+  <h3>跟读跟丢了怎么办？</h3>
+  <p>直接用手点提词面板上的任意一行，高亮会跳到那里继续跟。
+  你也可以在设置里关掉「跟读自动滚动」，当作普通手动提词器使用。</p>
+
+  <h3>我的稿子很短，为什么高亮一下就到底了？</h3>
+  <p>跟读靠语音的最近若干字与原稿做匹配。稿子只有十几个字时，匹配窗口会覆盖大半篇文字，
+  所以一开口就到末尾。用三五句以上的稿子才能看出逐字推进的效果。</p>
+
+  <h3>支持英文或粤语吗？</h3>
+  <p>识别引擎本身支持，当前版本界面只开放了简体中文。后续版本会加入语言切换。</p>
+
+  <h3>录好的视频存在哪？</h3>
+  <p>同时存进系统相册和 App 内的「回看」列表。删除 App 会清掉 App 内的副本，
+  相册里的视频不受影响。</p>
+
+  <h2>联系与反馈</h2>
+  <p>使用中遇到问题、或者有功能建议，欢迎邮件联系：
+  <a href="mailto:biily786063474@gmail.com">biily786063474@gmail.com</a></p>
+
+  <p><a href="privacy.html">隐私政策 →</a></p>
+
+  <footer>
+    口播稿相机（PromptCam）· 需要 iOS 26.0 或更高版本 · iPhone
+  </footer>
+
+</main>
+</body>
+</html>

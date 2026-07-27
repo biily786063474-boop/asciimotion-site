@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>口播稿相机 · 隐私政策</title>
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1e; --muted:#6b6b76;
+    --line:#e6e6ea; --accent:#4a56c4; --card:#f7f7f9;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{ --bg:#0a0a0c; --fg:#ededef; --muted:#8a8f98;
+           --line:#26262c; --accent:#8b94e8; --card:#141418; }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:48px 20px 96px;
+    background:var(--bg); color:var(--fg);
+    font:16px/1.75 -apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue",sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  main{max-width:720px;margin:0 auto}
+  h1{font-size:28px;line-height:1.3;margin:0 0 6px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 40px}
+  h2{font-size:19px;margin:44px 0 12px;letter-spacing:-.01em}
+  p{margin:0 0 14px}
+  ul{margin:0 0 14px;padding-left:22px}
+  li{margin:6px 0}
+  .lede{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:12px; padding:20px 22px; margin:0 0 8px;
+  }
+  .lede strong{color:var(--accent)}
+  table{width:100%;border-collapse:collapse;margin:8px 0 16px;font-size:15px}
+  th,td{text-align:left;padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--muted);font-weight:600;font-size:13px}
+  code{
+    font:14px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace;
+    background:var(--card);padding:1px 6px;border-radius:5px;
+  }
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);
+         color:var(--muted);font-size:13px}
+  a{color:var(--accent)}
+</style>
+</head>
+<body>
+<main>
+
+  <h1>口播稿相机 · 隐私政策</h1>
+  <p class="sub">最后更新：2026 年 7 月 27 日</p>
+
+  <div class="lede">
+    <p style="margin:0"><strong>口播稿相机不收集你的任何数据。</strong>
+    它不联网、不需要注册账号、不含任何第三方分析或广告 SDK。
+    你的录像、脚本文字和语音识别结果全部留在你的设备上。</p>
+  </div>
+
+  <h2>App 会用到哪些权限，各自做什么</h2>
+
+  <table>
+    <tr><th>权限</th><th>用途</th></tr>
+    <tr>
+      <td>相机</td>
+      <td>录制口播视频。画面只写入你设备上的视频文件。</td>
+    </tr>
+    <tr>
+      <td>麦克风</td>
+      <td>录制视频里的声音，并识别你读到了哪一句，好让提词器自动滚动。</td>
+    </tr>
+    <tr>
+      <td>语音识别</td>
+      <td>把你的语音转成文字，用来和提词稿对齐。<b>识别全程由 iOS 系统在设备本地完成，音频不会离开你的手机。</b></td>
+    </tr>
+    <tr>
+      <td>相册（仅添加）</td>
+      <td>把录好的视频保存到你的相册。App 不读取你相册里的其他内容。</td>
+    </tr>
+  </table>
+
+  <h2>语音识别怎么工作的</h2>
+  <p>口播稿相机使用 iOS 26 系统内置的设备端语音识别（<code>SpeechAnalyzer</code>）。
+  录制期间麦克风的音频只在你的设备内存中处理，用于判断你读到了稿子的哪个位置。
+  App 不会把音频或识别文本发送到任何服务器——它没有联网能力。</p>
+  <p>首次使用时，如果你的设备还没有中文识别模型，系统会下载一次该模型。
+  这个下载由 Apple 的系统服务完成，模型由 Apple 提供，与本 App 的开发者无关。</p>
+
+  <h2>你的数据存在哪</h2>
+  <ul>
+    <li><b>录制的视频</b>：保存在你的相册，以及 App 自己的沙盒目录（供「回看」使用）。</li>
+    <li><b>提词脚本</b>：保存在 App 沙盒内的本地数据库。</li>
+    <li><b>字幕时间轴</b>：以 <code>.json</code> 文件形式存在视频旁边，供导出字幕使用。</li>
+    <li><b>提词器偏好</b>（字号、面板高度、小窗比例等）：保存在本机 UserDefaults。</li>
+  </ul>
+  <p>删除 App 会一并删除上述沙盒内的全部内容。已存入相册的视频由你自行管理。</p>
+
+  <h2>数据共享与追踪</h2>
+  <p>没有。App 不与任何第三方共享数据，不做跨 App 追踪，不使用 IDFA，
+  也不包含任何分析、崩溃上报或广告组件。</p>
+
+  <h2>儿童隐私</h2>
+  <p>本 App 不收集任何个人信息，因此也不会收集儿童的个人信息。</p>
+
+  <h2>政策变更</h2>
+  <p>如果未来版本引入了需要收集数据的功能，我们会先更新本页面，
+  并在 App 内以显著方式告知，然后才启用该功能。</p>
+
+  <h2>联系方式</h2>
+  <p>对隐私有任何疑问，可通过 App Store 页面的开发者联系方式与我们联系。</p>
+
+  <footer>
+    口播稿相机（PromptCam）· 本页面适用于 App Store 上架的 iOS 版本。
+  </footer>
+
+</main>
+</body>
+</html>
