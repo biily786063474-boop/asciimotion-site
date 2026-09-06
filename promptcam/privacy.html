@@ -48,7 +48,7 @@
 <main>
 
   <h1>口播稿相机 · 隐私政策</h1>
-  <p class="sub">最后更新：2026 年 7 月 27 日</p>
+  <p class="sub">最后更新：2026 年 9 月 5 日</p>
 
   <div class="lede">
     <p style="margin:0"><strong>口播稿相机不收集你的任何数据。</strong>
@@ -85,12 +85,48 @@
   <p>首次使用时，如果你的设备还没有中文识别模型，系统会下载一次该模型。
   这个下载由 Apple 的系统服务完成，模型由 Apple 提供，与本 App 的开发者无关。</p>
 
+  <h2 id="face-data">换脸模式与面部数据（TrueDepth）</h2>
+  <p>只有当你主动切换到「换脸」拍摄模式时，口播稿相机才会启用 Apple 的 ARKit 面部追踪
+  （<code>ARFaceTrackingConfiguration</code>）。在配备原深感摄像头（TrueDepth）的机型上，
+  这项系统能力由该摄像头提供数据。退出换脸模式或关闭 App，追踪立即停止。</p>
+
+  <p><b>读取哪些数据</b>——全部由 iOS 系统框架在你的设备本地产生：</p>
+  <ul>
+    <li>头部的位置与朝向（<code>ARFaceAnchor.transform</code>）</li>
+    <li>面部网格顶点（<code>ARFaceGeometry.vertices</code>），用于让贴图贴合脸型并正确遮挡</li>
+    <li>表情系数（<code>blendShapes</code>）中的 12 项：左右眼眨眼、眼球四向朝向、
+        张嘴、左右嘴角上扬、撅嘴、嘬嘴</li>
+    <li>环境光估计，用于让卡通头套的亮度贴合现场光线</li>
+  </ul>
+
+  <p><b>用来做什么</b>：只有一个用途——把卡通头套实时对准你的脸，
+  并让它跟着你眨眼、转动眼球、开合嘴巴。每一帧的数据被 GPU 用于渲染当前这一帧之后立即丢弃。</p>
+
+  <p><b>不做什么</b>（这几条是本节最重要的内容）：</p>
+  <ul>
+    <li><b>不做人脸识别，不做身份认定。</b>App 不比对身份、不生成人脸特征值（faceprint）、
+        不建立任何人脸模板，也不具备任何能认出「你是谁」的功能。</li>
+    <li><b>不保存。</b>面部网格、表情系数与深度信息只存在于内存中，逐帧覆盖，
+        从不写入磁盘——不进相册、不进 App 沙盒、不进任何文件或数据库。</li>
+    <li><b>不上传、不共享。</b>App 不含任何网络请求代码，没有服务器、没有账号系统、
+        不集成任何第三方 SDK（分析、崩溃上报、广告一概没有）。
+        面部数据在技术上无法离开你的设备。</li>
+  </ul>
+
+  <p><b>录制出来的视频</b>里是合成后的普通画面（你的影像加上卡通头套），
+  与用系统相机拍的视频没有区别，保存在你的相册和 App 沙盒中，完全由你掌控。
+  视频文件里不包含面部网格、表情系数或深度数据。</p>
+
+  <p><b>保留期限</b>：面部数据不保留。追踪一停止即不复存在，
+  因此也不存在「删除面部数据」这一操作——没有任何面部数据可供删除。</p>
+
   <h2>你的数据存在哪</h2>
   <ul>
     <li><b>录制的视频</b>：保存在你的相册，以及 App 自己的沙盒目录（供「回看」使用）。</li>
     <li><b>提词脚本</b>：保存在 App 沙盒内的本地数据库。</li>
     <li><b>字幕时间轴</b>：以 <code>.json</code> 文件形式存在视频旁边，供导出字幕使用。</li>
     <li><b>提词器偏好</b>（字号、面板高度、小窗比例等）：保存在本机 UserDefaults。</li>
+    <li><b>面部数据</b>：<b>不保存</b>，见上方〈换脸模式与面部数据〉一节。</li>
   </ul>
   <p>删除 App 会一并删除上述沙盒内的全部内容。已存入相册的视频由你自行管理。</p>
 
@@ -107,6 +143,48 @@
 
   <h2>联系方式</h2>
   <p>对隐私有任何疑问，可通过 App Store 页面的开发者联系方式与我们联系。</p>
+
+  <h2 id="face-data-en">Face Data (TrueDepth API) — English Summary</h2>
+  <p>This section restates the Chinese section above and is provided in English for reference.</p>
+
+  <p><b>When it runs.</b> 口播稿相机 enables Apple's ARKit face tracking
+  (<code>ARFaceTrackingConfiguration</code>) only while the user has explicitly switched to the
+  optional "face mask" shooting mode. On devices with a TrueDepth camera, that system capability
+  is backed by the TrueDepth camera. Tracking stops the moment the user leaves that mode or
+  closes the app.</p>
+
+  <p><b>What is read</b> — all of it produced locally by iOS system frameworks:</p>
+  <ul>
+    <li>Head position and orientation (<code>ARFaceAnchor.transform</code>)</li>
+    <li>Face mesh vertices (<code>ARFaceGeometry.vertices</code>), used to fit and occlude the overlay</li>
+    <li>12 of the ARKit <code>blendShapes</code> coefficients: eye blink (left/right),
+        eye gaze (in/out/up/down), jaw open, mouth smile (left/right), mouth pucker, mouth funnel</li>
+    <li>Ambient light estimation, used to match the overlay's brightness to the scene</li>
+  </ul>
+
+  <p><b>Purpose.</b> A single purpose: to align a cartoon head overlay to the user's face in real
+  time and make it blink, look around, and open its mouth in sync with the user. Each frame's data
+  is consumed by the GPU to render that frame and is then discarded.</p>
+
+  <p><b>What the app does NOT do:</b></p>
+  <ul>
+    <li><b>No face recognition, no identification.</b> The app performs no identity matching,
+        creates no faceprint or face template, and has no capability to determine who anyone is.</li>
+    <li><b>No storage.</b> Face mesh, blend shape coefficients, and depth information exist only in
+        memory, are overwritten every frame, and are never written to disk — not to the photo
+        library, not to the app sandbox, not to any file or database.</li>
+    <li><b>No transmission, no sharing.</b> The app contains no networking code whatsoever, has no
+        server, no account system, and integrates no third-party SDKs (no analytics, no crash
+        reporting, no advertising). Face data cannot technically leave the user's device.</li>
+  </ul>
+
+  <p><b>Recorded videos</b> contain only ordinary composited video pixels (the user's image with the
+  cartoon overlay drawn on top), identical in nature to any video shot with the system camera. They
+  are saved to the user's photo library and the app sandbox, under the user's control. The video
+  files contain no face mesh, no blend shape coefficients, and no depth data.</p>
+
+  <p><b>Retention and deletion.</b> Face data is not retained. It ceases to exist as soon as
+  tracking stops, so there is no face data to delete and no deletion request is applicable.</p>
 
   <footer>
     口播稿相机（PromptCam）· 本页面适用于 App Store 上架的 iOS 版本。
