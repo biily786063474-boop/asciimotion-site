@@ -94,8 +94,8 @@
   <ul>
     <li>头部的位置与朝向（<code>ARFaceAnchor.transform</code>）</li>
     <li>面部网格顶点（<code>ARFaceGeometry.vertices</code>），用于让贴图贴合脸型并正确遮挡</li>
-    <li>表情系数（<code>blendShapes</code>）中的 12 项：左右眼眨眼、眼球四向朝向、
-        张嘴、左右嘴角上扬、撅嘴、嘬嘴</li>
+    <li>表情系数（<code>blendShapes</code>）中的 15 项：左右眼眨眼 2 项、
+        双眼各四向朝向共 8 项、张嘴 1 项，以及左右嘴角上扬、撅嘴、嘬嘴 4 项</li>
     <li>环境光估计，用于让卡通头套的亮度贴合现场光线</li>
   </ul>
 
@@ -157,8 +157,11 @@
   <ul>
     <li>Head position and orientation (<code>ARFaceAnchor.transform</code>)</li>
     <li>Face mesh vertices (<code>ARFaceGeometry.vertices</code>), used to fit and occlude the overlay</li>
-    <li>12 of the ARKit <code>blendShapes</code> coefficients: eye blink (left/right),
-        eye gaze (in/out/up/down), jaw open, mouth smile (left/right), mouth pucker, mouth funnel</li>
+    <li>Exactly 15 of the ARKit <code>blendShapes</code> coefficients:
+        <code>eyeBlinkLeft</code>, <code>eyeBlinkRight</code>;
+        <code>eyeLookUp/Down/In/Out</code> for each eye (8);
+        <code>jawOpen</code>; <code>mouthSmileLeft</code>, <code>mouthSmileRight</code>,
+        <code>mouthPucker</code>, <code>mouthFunnel</code></li>
     <li>Ambient light estimation, used to match the overlay's brightness to the scene</li>
   </ul>
 
